@@ -3,25 +3,17 @@
 
 	let headerText;
 
-    export let id;
+    export let key;
 
 	export let plotHeader = '';
 
-	export let data = [
-		{
-			x: ['giraffes', 'orangutans', 'monkeys'],
-			y: [20, 14, 23, 20],
-			type: 'bar'
-		}
-	];
+	export let data;
 
-    export let layout = {
-        title: 'Test Plot'
-    };
+    export let layout;
 
 	onMount(() => {
 		headerText = 'OnMount called';
-		let plotDiv = document.getElementById('plotDiv'+id);
+		let plotDiv = document.getElementById('plotDiv'+key);
 		new Plotly.newPlot(plotDiv, data, layout, { showSendToCloud: true, editable: true });
 	});
 </script>
@@ -35,7 +27,7 @@
 	<div>
 		<h1>{plotHeader}</h1>
 	</div>
-	<div id={`plotDiv${id}`} class="plot-container"><!-- Plotly chart will be drawn inside this DIV --></div>
+	<div id={`plotDiv${key}`} class="plot-container"><!-- Plotly chart will be drawn inside this DIV --></div>
 </div>
 
 <style>
